@@ -3,7 +3,7 @@ import path from "path";
 import fs from "fs";
 
 // More comprehensive ANSI code stripping function
-function stripAnsiCodes(input: any): any {
+function stripAnsiCodes(input: unknown): unknown {
   if (typeof input === "string") {
     // This pattern captures ALL ANSI escape sequences more comprehensively
     return input.replace(/\u001b\[\d+(?:;\d+)*m|\u001b\[\d*[a-zA-Z]/g, "");
@@ -62,7 +62,7 @@ function patchConsole(logger: pino.Logger) {
 
   // Special handling for console.log -> logger.info
   const origLog = console.log;
-  console.log = (...args: any[]) => {
+console.log = (...args: unknown[]) => {
     // Format multiple arguments similar to console.log behavior
     if (args.length === 1) {
       logger.info(stripAnsiCodes(args[0]));
@@ -81,7 +81,7 @@ function patchConsole(logger: pino.Logger) {
   // Handle other console methods
   methods.forEach((level) => {
     const orig = console[level];
-    console[level] = (...args: any[]) => {
+console[level] = (...args: unknown[]) => {
       // Format multiple arguments similar to console behavior
       if (args.length === 1) {
         logger[level](stripAnsiCodes(args[0]));
