@@ -57,8 +57,8 @@ export function register() {
 }
 
 function patchConsole(logger: pino.Logger) {
-  // Map console methods to logger methods
-  const methods = ["info", "warn", "error", "debug"] as const;
+// Map console methods to logger methods
+  const methods: (keyof Console)[] = ["info", "warn", "error", "debug"];
 
   // Special handling for console.log -> logger.info
   const origLog = console.log;
