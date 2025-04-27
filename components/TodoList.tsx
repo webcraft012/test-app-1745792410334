@@ -2,7 +2,7 @@
 
    import { useEffect } from 'react';
    import { useTodoStore } from '@/lib/store/todo-store';
-   import { TodoItem } from '@/components/TodoItem';
+import TodoItem from '@/components/TodoItem';
 
    export function TodoList() {
      const { todos, loading, error, fetchTodos } = useTodoStore();
