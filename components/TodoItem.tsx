@@ -71,17 +71,17 @@
     <div className="flex space-x-1">
      {isEditing ? (
       <>
-       <Button variant="ghost" size="sm" onClick={handleSave}>Save</Button>
-       <Button variant="ghost" size="sm" onClick={handleCancel}>Cancel</Button>
+<Button variant="ghost" onClick={handleSave}>Save</Button>
+       <Button variant="ghost" onClick={handleCancel}>Cancel</Button>
       </>
      ) : (
-      <Button variant="ghost" size="icon" onClick={handleEdit}>
-       <Pencil className="h-4 w-4" />
+<Button variant="ghost" onClick={handleEdit}>
+        <Pencil className="h-4 w-4" />
+       </Button>
+      )}
+      <Button variant="ghost" onClick={handleDelete}>
+       <Trash2 className="h-4 w-4" />
       </Button>
-     )}
-     <Button variant="ghost" size="icon" onClick={handleDelete}>
-      <Trash2 className="h-4 w-4" />
-     </Button>
     </div>
    </div>
   );
