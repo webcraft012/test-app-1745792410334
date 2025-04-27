@@ -16,7 +16,7 @@ export default function IframeEventHandler() {
     if (typeof window === "undefined") return;
 
     // Set up message event listener for the parent window commands
-    const messageHandler = (event: MessageEvent) => {
+const messageHandler = (event: MessageEvent) => {
       try {
         // Skip logging for messages that are just logs being echoed back
         if (event.data.level && event.data.args) {
@@ -93,7 +93,7 @@ export default function IframeEventHandler() {
       );
     };
 
-    const popstateHandler = () => {
+const popstateHandler = () => {
       window.parent.postMessage(
         {
           type: "urlChanged",
