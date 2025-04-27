@@ -23,7 +23,7 @@
 
      const handleInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
        if (e.key === 'Enter') {
-         handleSubmit(e as any); // Cast to any to satisfy FormEvent type
+handleSubmit(e);
        }
      };
 
